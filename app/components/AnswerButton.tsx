@@ -4,6 +4,7 @@ import { ATypes } from "../interfaces/types";
 import { Button } from "flowbite-react";
 import { PropsWithChildren } from "react";
 import { Tooltip } from "flowbite-react";
+import { useRouter } from "next/navigation";
 
 const ControlableTooltip = ({
   show,
@@ -13,14 +14,17 @@ const ControlableTooltip = ({
   show ? <Tooltip content={content}>{children}</Tooltip> : <>{children}</>;
 
 export const AnswerButton = () => {
+  const router = useRouter();
   const { state, dispatch, questionsCards } = useContext(Store);
   const answerQuestion = () => {
     dispatch({
       type: ATypes.AnswerQuestion,
-      payload: questionsCards,
+      payload: {
+        questionsCards,
+        router,
+      },
     });
   };
-
   const disabled = state.selectedOption == null;
 
   return (

@@ -1,4 +1,3 @@
-import { Option } from "./../interfaces/types";
 import { ATypes, IAction, State } from "../interfaces/types";
 
 export const initialState: State = {
@@ -19,11 +18,23 @@ export function reducer(state: State, action: IAction): State {
   switch (action.type) {
     case ATypes.AnswerQuestion:
       const currentIndex = state.currentIndex + 1;
+      const points = state.points + (state.selectedOption?.points || 0);
+      if (currentIndex == action.payload.questionsCards.length) {
+        setTimeout(() => {
+          window.location.href = `${window.location.origin}/result?points=${points}`;
+        }, 800);
+        return {
+          ...state,
+          currentIndex,
+          points,
+          selectedOption: null,
+        };
+      }
       return {
         ...state,
-        currentCard: action.payload[currentIndex],
+        currentCard: action.payload.questionsCards[currentIndex],
         currentIndex,
-        points: state.points + (state.selectedOption?.points || 0),
+        points,
         selectedOption: null,
       };
     case ATypes.InitGame:
