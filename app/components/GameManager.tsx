@@ -1,12 +1,11 @@
 "use client";
-import { ATypes, Option, State, TQuestionCard } from "../interfaces/types";
+import { createContext, useReducer } from "react";
+import { State, TQuestionCard } from "../interfaces/types";
 import { initialState, reducer } from "../logic/store";
 import { AnswerButton } from "./AnswerButton";
 import { GameProgressBar } from "./GameProgressBar";
 import { OptionsList } from "./OptionsList";
 import { QuestionCard } from "./QuestionCard";
-import { useReducer } from "react";
-import { createContext } from "react";
 
 export const Store = createContext({
   state: {} as State,
@@ -26,7 +25,7 @@ export const GameManager = ({
   });
 
   return (
-    <main className="p-4 max-w-2xl">
+    <main className="p-4 max-w-2xl dark">
       <Store.Provider value={{ state, dispatch, questionsCards }}>
         <GameProgressBar
           current={state.currentIndex}
