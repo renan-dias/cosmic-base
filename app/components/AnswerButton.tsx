@@ -1,16 +1,40 @@
-export const AnswerButton = ({
-  answerQuestion,
-}: {
-  answerQuestion: () => void;
-}) => (
-  <div className="flex flex-row mt-4 justify-end">
-    <button
-      onClick={answerQuestion}
-      className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800"
-    >
-      <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-        Responder
-      </span>
-    </button>
-  </div>
-);
+import { useContext } from "react";
+import { Store } from "./GameManager";
+import { ATypes } from "../interfaces/types";
+import { Button } from "flowbite-react";
+import { PropsWithChildren } from "react";
+import { Tooltip } from "flowbite-react";
+
+const ControlableTooltip = ({
+  show,
+  content,
+  children,
+}: PropsWithChildren<{ show: boolean; content: string }>) =>
+  show ? <Tooltip content={content}>{children}</Tooltip> : <>{children}</>;
+
+export const AnswerButton = () => {
+  const { state, dispatch, questionsCards } = useContext(Store);
+  const answerQuestion = () => {
+    dispatch({
+      type: ATypes.AnswerQuestion,
+      payload: questionsCards,
+    });
+  };
+
+  const disabled = state.selectedOption == null;
+
+  return (
+    <div className="flex flex-row mt-4 justify-end">
+      <ControlableTooltip show={disabled} content="Escolha uma opção">
+        <Button
+          gradientDuoTone="greenToBlue"
+          outline
+          disabled={disabled}
+          onClick={answerQuestion}
+        >
+          <p>Responder</p>
+        </Button>
+      </ControlableTooltip>
+    </div>
+  );
+};

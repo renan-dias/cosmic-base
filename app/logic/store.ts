@@ -37,7 +37,7 @@ export function reducer(state: State, action: IAction): State {
     case ATypes.SelectOption:
       return {
         ...state,
-        selectedOption: action.payload,
+        selectedOption: action.payload.option,
       };
   }
 }
