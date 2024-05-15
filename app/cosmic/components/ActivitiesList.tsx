@@ -11,24 +11,40 @@ export const ActivitiesList = () => {
       {etapas.map(({ atividades, nome, fichas }, idx) => (
         <Accordion.Panel key={idx}>
           <Accordion.Title className="text-2xl">
-            <span className="mr-4">{nome}</span>
-            <Checkbox></Checkbox>
+            <span>{nome}</span>
           </Accordion.Title>
           <Accordion.Content>
+            {!!fichas && (
+              <div className="mb-5 text-xl">
+                Fichas:
+                <a
+                  href={`/${fichas}`}
+                  target="_blank"
+                  className="text-blue-400 underline ml-2"
+                >
+                  {fichas}
+                </a>
+              </div>
+            )}
             <Accordion>
               {atividades.map(({ nome, tipo, arquivos }, idx) => (
                 <Accordion.Panel key={idx}>
                   <Accordion.Title className="text-lg">
-                    <span className="mr-4">{nome}</span>
-                    <Checkbox></Checkbox>
+                    <span>{nome}</span>
                   </Accordion.Title>
                   <Accordion.Content className="text-md text-blue-400 underline">
-                    <div>{arquivos.principal}</div>
-                    {!!arquivos.aluno && <div>{arquivos.aluno}</div>}
-                    {!!arquivos.professor && <div>{arquivos.professor}</div>}
+                    <div>
+                      <a href={`/${arquivos.professor}`} target="_blank">
+                        {arquivos.professor}
+                      </a>
+                    </div>
                     {!!arquivos.complementares?.length &&
                       arquivos.complementares.map((arquivo, index) => (
-                        <div key={index}>{arquivo}</div>
+                        <div key={index}>
+                          <a href={`/${arquivo}`} target="_blank">
+                            {arquivo}
+                          </a>
+                        </div>
                       ))}
                   </Accordion.Content>
                 </Accordion.Panel>

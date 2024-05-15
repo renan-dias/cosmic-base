@@ -15,9 +15,7 @@ export type Atividade = {
   nome: string;
   tipo: ETipoAtividade;
   arquivos: {
-    principal: CosmicFile;
-    aluno?: CosmicFile;
-    professor?: CosmicFile;
+    professor: CosmicFile;
     complementares?: CosmicFile[];
   };
 };
