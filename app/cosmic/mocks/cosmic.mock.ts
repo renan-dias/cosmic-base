@@ -33,7 +33,6 @@ export const etapasCosmic: EtapaCosmic[] = [
         tipo: ETipoAtividade.INV,
         arquivos: {
           professor: "Atividade 3  Roteiro para professor.pdf",
-          complementares: ["Fase 1 Fichas 1914 a 1924 .pdf"],
         },
       },
       {
@@ -65,7 +64,6 @@ export const etapasCosmic: EtapaCosmic[] = [
         tipo: ETipoAtividade.INV,
         arquivos: {
           professor: "Atividade 6 Roteiro para professor.pdf",
-          complementares: ["Fase 2 Fichas 1925 a 1931.pdf"],
         },
       },
       {
@@ -99,7 +97,6 @@ export const etapasCosmic: EtapaCosmic[] = [
         tipo: ETipoAtividade.APL,
         arquivos: {
           professor: "Atividade 9  Roteiro para professor.pdf",
-          complementares: ["Fase 3  Fichas 1932 a 1939.pdf"],
         },
       },
     ],
