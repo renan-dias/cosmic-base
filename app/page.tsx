@@ -1,59 +1,82 @@
-import { ActivitiesList } from "./cosmic/components/ActivitiesList";
+import React from 'react'
+import Card from './components/Card'
+import Button from './components/Button'
+import Link from 'next/link'
 
-export default function Cosmic() {
+export default function Home() {
   return (
-    <div className="p-6 max-w-6xl">
-      <div className="text-4xl my-6">Jogo Cosmic</div>
-      <div>
-        Esta sequência didática foi produzida pelo TeHCo (Grupo de Teoria e
-        História do Conhecimento Científico e Escolar). liderado pelo prof. Dr.
-        Ivã Gurgel, no Instituto de Física da Universidade de São Paulo. Criado
-        em 2011, ele é composto por pesquisadores em ensino de ciências e
-        professores de física de escolas públicas do Estado de São Paulo. Para
-        mais detalhes sobre a pesquisa de doutorado que investigou a criação
-        desta sequência didática pelo grupo e as visões sobre a ciência dos
-        alunos do ensino médio de uma escola pública paulsitana que jogaram o
-        COSMIC em 2013
-      </div>
-      <div className="text-2xl my-4">Objetivo Geral:</div>
-      <div>
-        O objetivo geral da sequência é permitir aos estudantes uma compreensão
-        mais rica sobre as formas com que a ciência se relaciona com seu
-        contexto histórico-social. Para isso, foi criado um jogo didático, em
-        que os alunos investigam a história da ciência no início do século XX,
-        principalmente entre 1914 e 1939, refletindo e discutindo sobre
-        possíveis relações entre a história política mundial e o desenvolvimento
-        da cosmologia relativística. Neste jogo, que constitui a estrutura
-        principal da sequência didática, os objetivos gerais são problematizar
-        tanto a visão do cientista neutro, livre de influências ideológicas,
-        quanto o relativismo ingênuo, a visão do cientista dominado por
-        influências ideológicas. Queremos que os alunos vejam a ciência como uma
-        construção humana influenciada pelo contextohistórico-social, mas não
-        determinada por ele.
-      </div>
-      <div className="text-2xl my-4">Objetivos específicos:</div>
+    <div className="container mx-auto px-4 py-8">
+      <section className="text-center mb-16 animate-slide-down">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white-600 dark:text-white-600 bg-clip-text text-transparent">
+          COSMIC
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Um jogo educativo sobre cosmologia que explora a história e o desenvolvimento da ciência
+        </p>
+      </section>
 
-      <div className="my-8">
-        Como objetivos específicos, queremos que os alunos possam compreender
-        conceitos de cosmologia, como: constante cosmológica e universo
-        estático; expansão do universo e o desvio espectral para o vermelho; a
-        relação entre desvio espectral e distância (conhecida como Lei de
-        Hubble) e as diferentes interpretações para o desvio para o vermelho,
-        percebendo que os mesmos dados podem ser interpretados de diferentes
-        maneiras. Queremos também que eles possam refletir sobre o conceito de
-        “descoberta” na ciência, percebendo as distorções comuns que a mídia faz
-        sobre a criação de teorias como fruto da mente de “gênios” isolados;
-        discutir os possíveis candidatos para a “descoberta” da expansão do
-        universo, percebendo que a construção dessa teoria teve muitos
-        colaboradores; entender o processo de aceitação dos artigos científicos
-        a partir da avaliação por pares; perceber tanto a importância das
-        observações astronômicas para a decisão de qual seria o melhor modelo
-        cosmológico, quanto algumas influências humanas sobre a atividade
-        científica, nas relações de poder entre cientistas, disputas de
-        prioridade e na avaliação dos resultados obtidos.
-      </div>
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <Card animation="slide-up">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Sobre o Projeto</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            COSMIC é um jogo educativo desenvolvido pelo TeHCo (Grupo de Teoria e História do Conhecimento Científico e Escolar), 
+            liderado pelo prof. Dr. Ivã Gurgel, no Instituto de Física da Universidade de São Paulo.
+          </p>
+          <p className="text-gray-600 dark:text-gray-300">
+            Criado em 2011, o grupo é composto por pesquisadores em ensino de ciências e professores de física de escolas públicas 
+            do Estado de São Paulo.
+          </p>
+        </Card>
 
-      <ActivitiesList />
+        <Card animation="slide-up">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Objetivo</h2>
+          <p className="text-gray-600 dark:text-gray-300">
+            O jogo foi desenvolvido para investigar a criação de sequências didáticas e as visões sobre a ciência dos alunos 
+            do ensino médio de escolas públicas paulistas.
+          </p>
+        </Card>
+      </section>
+
+      <section className="text-center mb-16">
+        <Card animation="slide-up">
+          <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Comece a Jogar</h2>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <Link href="/jogo">
+              <Button size="lg">
+                Iniciar Jogo
+              </Button>
+            </Link>
+            <Link href="/sobre">
+              <Button variant="outline" size="lg">
+                Saiba Mais
+              </Button>
+            </Link>
+          </div>
+        </Card>
+      </section>
+
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <Card animation="slide-up">
+          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Aprendizado</h3>
+          <p className="text-gray-600 dark:text-gray-300">
+            Explore conceitos fundamentais de cosmologia de forma interativa e envolvente.
+          </p>
+        </Card>
+
+        <Card animation="slide-up">
+          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">História</h3>
+          <p className="text-gray-600 dark:text-gray-300">
+            Conheça a evolução do pensamento científico sobre o universo.
+          </p>
+        </Card>
+
+        <Card animation="slide-up">
+          <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Interatividade</h3>
+          <p className="text-gray-600 dark:text-gray-300">
+            Experiência gamificada que torna o aprendizado mais dinâmico e divertido.
+          </p>
+        </Card>
+      </section>
     </div>
-  );
+  )
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,23 +8,129 @@
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    --primary-color: 0, 62, 82;
   }
   
   @media (prefers-color-scheme: dark) {
     :root {
       --foreground-rgb: 255, 255, 255;
       --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 20, 20, 40;
+      --background-end-rgb: 0, 0, 0;
+    }
+    body {
+      backdrop-filter: blur(5px);
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
   
   body {
-    color: rgb(var(--foreground-rgb));
+    color: #003E52;
     background: linear-gradient(
         to bottom,
         transparent,
         rgb(var(--background-end-rgb))
       )
       rgb(var(--background-start-rgb));
+    background-image: url('/nasa01_S 1.png');
+    background-size: cover;
+    background-attachment: fixed;
+    animation: zoomBackground 60s infinite alternate;
+    font-family: 'Unica One', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    color: #003E52;
+  }
+  
+  @keyframes zoomBackground {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Transições suaves para o tema escuro */
+  * {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+  }
+  
+  /* Animações personalizadas */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  h1 {
+    font-family: 'Unica One', sans-serif;
+    color: #003E52;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    h1 {
+      color: white;
+    }
+  }
+  
+  button {
+    background-color: #003E52;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005f73;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: #003E52;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+      color: #003E52;
+    }
+
+    .cosmic-title {
+      color: white;
+    }
+  }
+  
+  h1.cosmic-title {
+    color: white;
   }
   

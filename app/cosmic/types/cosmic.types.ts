@@ -7,12 +7,14 @@ export enum ETipoAtividade {
 
 export type EtapaCosmic = {
   nome: string;
+  descricao: string;
   fichas?: CosmicFile;
   atividades: Atividade[];
 };
 
 export type Atividade = {
   nome: string;
+  descricao: string;
   tipo: ETipoAtividade;
   arquivos: {
     professor: CosmicFile;
