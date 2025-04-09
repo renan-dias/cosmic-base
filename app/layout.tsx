@@ -2,13 +2,10 @@
 
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from 'next-themes'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { useEffect } from 'react'
-
-const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -61,7 +58,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans ${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col`}>
+      <body className={`font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-grow animate-fade-in">

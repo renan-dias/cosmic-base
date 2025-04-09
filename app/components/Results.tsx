@@ -113,7 +113,7 @@ export default function Results() {
       <div className="flex p-8 justify-center">
         {profileDetail && profileDetail.name ? (
           <Card className="max-w-md">
-            <h5 className="text-2xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="text-2xl text-center font-bold tracking-tight text-black-900 dark:text-white">
               {profileDetail.name}
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">

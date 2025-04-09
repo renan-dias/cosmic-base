@@ -21,15 +21,15 @@ export default function Button({
     focus:ring-2
     focus:ring-offset-2
     animate-fade-in
-    text-white
   `
 
   const variantStyles = {
     primary: `
-      bg-gradient-to-r from-blue-500 to-purple-500
-      text-white
-      hover:from-blue-600 hover:to-purple-600
-      focus:ring-blue-500
+      bg-white
+      text-[#003E52]
+      border-2 border-[#003E52]
+      hover:bg-[#003E52] hover:text-white
+      focus:ring-[#003E52]
       shadow-lg hover:shadow-xl
     `,
     secondary: `
@@ -39,11 +39,11 @@ export default function Button({
       focus:ring-gray-500
     `,
     outline: `
-      border-2
-      border-gray-200
+      bg-[#003E52]
       text-white
-      hover:border-gray-300
-      focus:ring-gray-500
+      border-2 border-[#003E52]
+      hover:bg-[#005f73]
+      focus:ring-[#003E52]
     `
   }
 

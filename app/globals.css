@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 
 @tailwind base;
@@ -5,132 +7,134 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-    --primary-color: 0, 62, 82;
+  --primary-text-color: #003E52;
+  --special-text-color: white;
+  --menu-hover-text-color: rgb(209, 213, 219); 
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --sidebar-bg-mobile: #0a2a36; 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+   
   }
-  
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-    body {
-      backdrop-filter: blur(5px);
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-  }
-  
   body {
-    color: #003E52;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-    background-image: url('/nasa01_S 1.png');
-    background-size: cover;
-    background-attachment: fixed;
-    animation: zoomBackground 60s infinite alternate;
-    font-family: 'Unica One', sans-serif;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.7);
   }
-  
-  h1, h2, h3, h4, h5, h6, p {
-    color: #003E52;
+  .card {
+    background-color: rgba(0, 62, 82, 0.85);
   }
-  
-  @keyframes zoomBackground {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.05);
-    }
-  }
-  
-  /* Transições suaves para o tema escuro */
-  * {
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-  }
-  
-  /* Animações personalizadas */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideUp {
-    from {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideDown {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  h1 {
-    font-family: 'Unica One', sans-serif;
-    color: #003E52;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    h1 {
-      color: white;
-    }
-  }
-  
-  button {
-    background-color: #003E52;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #005f73;
-  }
-  
-  .menu-item {
-    margin-bottom: 10px;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    body {
-      color: #003E52;
-    }
+}
 
-    h1, h2, h3, h4, h5, h6, p {
-      color: #003E52;
-    }
+body {
+  color: var(--primary-text-color);
+  background: linear-gradient( to bottom, transparent, rgb(var(--background-end-rgb)) ) rgb(var(--background-start-rgb));
+  background-image: url('/nasa01_S 1.png');
+  background-size: cover;
+  background-attachment: fixed; 
+  animation: zoomBackground 60s infinite alternate;
+  font-family: 'Unica One', sans-serif;
+}
 
-    .cosmic-title {
-      color: white;
+/* Default text styles */
+h1, h2, h3, h4, h5, h6, p {
+  color: inherit;
+  font-family: 'Unica One', sans-serif;
+}
+
+/* --- Sidebar Styling --- */
+/* Using Tailwind classes in HTML for positioning/visibility */
+/* Add specific background via variable */
+.jogo-sidebar {
+   background-color: var(--sidebar-bg-mobile); /* Mobile background */
+}
+@media (min-width: 768px) { /* Corresponds to md: breakpoint */
+   .jogo-sidebar {
+       background-color: transparent; /* Or your desired desktop sidebar background */
+        /* Example: Make sidebar scrollable independently on desktop if content overflows */
+       /* height: 100vh; */
+       /* overflow-y: auto; */
+   }
+}
+
+
+/* Sidebar Menu Text (already correctly styled white) */
+.jogo-sidebar details summary,
+.jogo-sidebar details ul a {
+   color: var(--special-text-color) !important;
+   padding: 8px 0; /* Add some padding for better touch targets */
+   display: block; /* Ensure links take full width for easier clicking */
+}
+.jogo-sidebar details summary {
+    font-weight: bold; /* Make summaries bolder */
+    cursor: pointer;
+}
+.jogo-sidebar details ul {
+    padding-left: 1rem; /* Indent nested links */
+}
+.jogo-sidebar details ul a:hover,
+.jogo-sidebar details summary:hover { /* Apply hover to summary too */
+   color: var(--menu-hover-text-color) !important;
+}
+
+
+/* --- Main Content Specific Styles --- */
+.jogo-main h2,
+.jogo-main p {
+  color: var(--primary-text-color) !important;
+}
+
+/* --- COSMIC Titles (White) --- */
+.main-cosmic-title,
+.header-cosmic-title {
+  color: var(--special-text-color) !important;
+  font-family: 'Unica One', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Button Styles (Unchanged) --- */
+button:not(#menu-toggle) { /* Exclude menu toggle from general button style if needed */
+  background-color: #003E52;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  font-family: 'Unica One', sans-serif;
+}
+button:not(#menu-toggle):hover {
+  background-color: #005f73;
+}
+
+
+/* --- Add state for when mobile menu is open --- */
+/* This class will be toggled by JavaScript on the <body> or a container */
+.sidebar-open #sidebar {
+  transform: translateX(0); /* Slide sidebar in */
+}
+.sidebar-open #overlay {
+  display: block; /* Show overlay */
+  opacity: 1;
+}
+/* Optional: Prevent body scroll when menu is open */
+body.sidebar-open {
+    overflow: hidden; /* Prevent scrolling main content */
+}
+@media (min-width: 768px) { /* Disable body scroll lock on desktop */
+    body.sidebar-open {
+        overflow: auto;
     }
-  }
-  
-  h1.cosmic-title {
-    color: white;
-  }
-  
+}
+
+
+/* --- Animations & Transitions (Unchanged) --- */
+@keyframes zoomBackground { /* ... */ }
+* { transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease; } /* Note: JS transitions handle transform/opacity */
+@keyframes fadeIn { /* ... */ }
+@keyframes slideUp { /* ... */ }
+@keyframes slideDown { /* ... */ }
+.menu-item { margin-bottom: 10px; }

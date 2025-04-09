@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Desenvolvido por</h3>
+            <h3 className="text-lg font-semibold text-black-900 dark:text-white">Desenvolvido por</h3>
             <div className="space-y-2">
               <Link 
                 href="https://github.com/GabrielPaliari" 
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Sobre o Projeto</h3>
+            <h3 className="text-lg font-semibold text-black-900 dark:text-white">Sobre o Projeto</h3>
             <p className="text-gray-600 dark:text-gray-300">
               COSMIC é um jogo educativo desenvolvido pelo TeHCo (Grupo de Teoria e História do Conhecimento Científico e Escolar).
             </p>
