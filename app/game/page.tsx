@@ -1,22 +1,26 @@
 import { Suspense } from "react";
 import { GameManager } from "../components/GameManager";
 
-let data: any = { list: [] };
-let edgeConfigError = false;
+export default async function Game() {
+  let data: any = { list: [] };
+  let edgeConfigError = false;
 
-if (process.env.EDGE_CONFIG) {
-  try {
-    // Importação dinâmica para evitar erro em build local/sem variável
-    const { get } = await import("@vercel/edge-config");
-    data = { list: (await get("questionCards"))?.list || [] };
-  } catch (e) {
+  if (process.env.EDGE_CONFIG) {
+    try {
+      const { get } = await import("@vercel/edge-config");
+      const result = await get("questionCards");
+      if (result && typeof result === "object" && "list" in result) {
+        data = { list: (result as any).list || [] };
+      } else {
+        data = { list: [] };
+      }
+    } catch (e) {
+      edgeConfigError = true;
+    }
+  } else {
     edgeConfigError = true;
   }
-} else {
-  edgeConfigError = true;
-}
 
-export default function Game() {
   if (edgeConfigError) {
     return (
       <div className="p-8 text-center text-red-600">
